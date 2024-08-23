@@ -1798,8 +1798,8 @@
                     <h2 contenteditable="true" data-index="${index}" data-attr="name">${product.name}</h2>
                     <p class="price" contenteditable="true" data-index="${index}" data-attr="price">${product.price}</p>
                     <p contenteditable="true" data-index="${index}" data-attr="description">${product.description}</p>
-                    <button onclick="editProduct(${index})">Editar</button>
-                    <button onclick="buyProduct('${product.name}')">Comprar</button>
+                    <button onclick="editProduct(${index})">Coll</button>
+                    <button onclick="buyProduct('${product.name}')">Comprar WhatsApp</button>
                 `;
                 productContainer.appendChild(productElement);
             });
