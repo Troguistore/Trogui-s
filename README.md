@@ -95,7 +95,7 @@
 </head>
 <body>
     <header>
-        <h1>TROGUIf</h1>
+        <h1>TROGUI</h1>
         <p><strong>Envío gratis y pagos contra entrega a toda Colombia</strong></p>
         <input type="text" id="search" placeholder="Buscar productos...">
     </header>
