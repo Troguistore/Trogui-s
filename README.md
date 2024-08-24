@@ -95,7 +95,7 @@
 </head>
 <body>
     <header>
-        <h1>TROGUI ROPA</h1>
+        <h1>TROGUIf</h1>
         <p><strong>Envío gratis y pagos contra entrega a toda Colombia</strong></p>
         <input type="text" id="search" placeholder="Buscar productos...">
     </header>
@@ -113,12 +113,6 @@
                 image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/79394/17030214261703021426Tapete%20Antideslizante%20Galaxia%20Cosmos%20Multiusos%20TPCOS%204.jpg'
             },
             {
-                name: 'Tapete Antideslizante Absorbente Combo',
-                price: '49,000',
-                description: 'Tapete de PVC y terciopelo técnico, con fuerte antideslizante y absorción de agua rápida. Ideal para baños, cocinas, lavanderías, y más. Alta calidad, duradero y fácil de limpiar. Disponible en dos tamaños: 120x40 cm y 60x40 cm. Colores y patrones modernos que combinan con cualquier decoración.',
-                image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/565196/17027618531702498479Tapete%20de%20cocina08.jpg'
-},
-{
     name: 'Tapete Antideslizante Absorbente Combo',
     price: '49,000',
     description: 'Tapete de PVC y terciopelo, con absorción de agua y secado rápido. Firme base antideslizante. Ideal para baños, cocinas, y más. Disponible en 120x40 cm y 60x40 cm.',
