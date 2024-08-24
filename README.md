@@ -30,6 +30,9 @@
             padding: 10px;
             margin-top: 10px;
             font-size: 16px;
+            max-width: 400px;
+            border: none;
+            border-radius: 5px;
         }
         .product-list {
             display: flex;
@@ -46,6 +49,7 @@
             text-align: center;
             background-color: #f9f9f9;
             color: #000000;
+            transition: transform 0.3s ease-in-out;
         }
         .product img {
             max-width: 100%;
@@ -76,6 +80,17 @@
         .product button:hover {
             background-color: #ff6600;
         }
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .product {
+                width: 45%;
+            }
+        }
+        @media (max-width: 480px) {
+            .product {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -102,12 +117,6 @@
                 price: '49,000',
                 description: 'Tapete de PVC y terciopelo técnico, con fuerte antideslizante y absorción de agua rápida. Ideal para baños, cocinas, lavanderías, y más. Alta calidad, duradero y fácil de limpiar. Disponible en dos tamaños: 120x40 cm y 60x40 cm. Colores y patrones modernos que combinan con cualquier decoración.',
                 image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/565196/17027618531702498479Tapete%20de%20cocina08.jpg'
-            },
-{
-    name: 'Tapete Antideslizante Galaxia',
-    price: '29,000',
-    description: 'Tapete moderno de poliéster de 39,5 x 60 cm. Perfecto para decoración, uso en diversas superficies, y adecuado para mascotas. Material antideslizante, duradero y fácil de lavar.',
-    image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/79394/17030214261703021426Tapete%20Antideslizante%20Galaxia%20Cosmos%20Multiusos%20TPCOS%204.jpg'
 },
 {
     name: 'Tapete Antideslizante Absorbente Combo',
@@ -224,124 +233,124 @@
     image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/860340/17157030869combo.png'
 },
 { 
-  nombre: 'Impresora Portatil', 
-  precio: '579,000', 
-  descripción: 'Impresora compacta para viajes. Imprime PDF, fotos, y más. Conexión inalámbrica, batería de 1500 mAh. Tamaño de impresión A4, aplicación para edición gratuita, impresión térmica sin tinta.', 
-  imagen: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/900351/1717095755WhatsApp%20Image%202024-05-30%20at%201.32.08%20PM.jpeg' 
+  name: 'Impresora Portatil', 
+  price: '579,000', 
+  description: 'Impresora compacta para viajes. Imprime PDF, fotos, y más. Conexión inalámbrica, batería de 1500 mAh. Tamaño de impresión A4, aplicación para edición gratuita, impresión térmica sin tinta.', 
+  image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/900351/1717095755WhatsApp%20Image%202024-05-30%20at%201.32.08%20PM.jpeg' 
 },
 { 
-  nombre: 'Rollo Para Impresora Térmica Celular X5', 
-  precio: '34,000', 
-  descripción: '', 
-  imagen: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/633780/1707152621IMPRESORA%20TERMICA%20PARA%20CELULAR%2007.png' 
+  name: 'Rollo Para Impresora Térmica Celular X5', 
+  price: '34,000', 
+  description: '', 
+  image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/633780/1707152621IMPRESORA%20TERMICA%20PARA%20CELULAR%2007.png' 
 },
 { 
-  nombre: 'Smart Watch Z78 Ultra', 
-  precio: '105,000', 
-  descripción: 'Reloj inteligente con monitor de salud, impermeable IP67, pantalla HD de 1.52". Ideal para deportes, conexión sencilla a aplicaciones, múltiples idiomas.', 
-  imagen: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/578944/1703859144cc65592e-d8ea-4498-a809-5f674d65a1a5.jpeg' 
+  name: 'Smart Watch Z78 Ultra', 
+  price: '105,000', 
+  description: 'Reloj inteligente con monitor de salud, impermeable IP67, pantalla HD de 1.52". Ideal para deportes, conexión sencilla a aplicaciones, múltiples idiomas.', 
+  image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/578944/1703859144cc65592e-d8ea-4498-a809-5f674d65a1a5.jpeg' 
 },
 { 
-  nombre: 'Reloj Smart Watch Ld6 Serie 7', 
-  precio: '79,000', 
-  descripción: 'Reloj inteligente con monitor de ritmo cardíaco, marcador de pasos, carga magnética, notificaciones.', 
-  imagen: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/225802/17019846181701984618reloj-smart-watch-ld6-serie-7-dts-shop-plus-245065060.jpg' 
+  name: 'Reloj Smart Watch Ld6 Serie 7', 
+  price: '79,000', 
+  description: 'Reloj inteligente con monitor de ritmo cardíaco, marcador de pasos, carga magnética, notificaciones.', 
+  image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/225802/17019846181701984618reloj-smart-watch-ld6-serie-7-dts-shop-plus-245065060.jpg' 
 },
 { 
-  nombre: 'Smart Watch T100 Plus', 
-  precio: '119,000', 
-  descripción: 'Reloj inteligente con pantalla IPS 1.75", 11 carátulas, 8-10 horas de uso continuo. Funciones avanzadas para deportes y notificaciones.', 
-  imagen: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/48572/17030809051703080905SMART.jpeg' 
+  name: 'Smart Watch T100 Plus', 
+  price: '119,000', 
+  description: 'Reloj inteligente con pantalla IPS 1.75", 11 carátulas, 8-10 horas de uso continuo. Funciones avanzadas para deportes y notificaciones.', 
+  image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/48572/17030809051703080905SMART.jpeg' 
 },
 { 
-  nombre: 'Smart Watch P100', 
-  precio: '129,000', 
-  descripción: 'Incluye 2 relojes inteligentes (Serie 7 y 8), 4 pulseras, protector, batería MagSafe, cargador y cable Tipo C.', 
-  imagen: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/747339/1712175705WhatsApp%20Image%202024-04-03%20at%203.06.56%20PM.jpeg' 
+  name: 'Smart Watch P100', 
+  price: '129,000', 
+  description: 'Incluye 2 relojes inteligentes (Serie 7 y 8), 4 pulseras, protector, batería MagSafe, cargador y cable Tipo C.', 
+  image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/747339/1712175705WhatsApp%20Image%202024-04-03%20at%203.06.56%20PM.jpeg' 
 },
 { 
-  nombre: 'Smart Watch K950 Ultra Waterproof', 
-  precio: '129,000', 
-  descripción: 'Reloj inteligente impermeable con monitor de salud, notificaciones, control de música, linterna y personalización de carátulas.', 
-  imagen: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/445317/1697575434iiii.jpeg' 
+  name: 'Smart Watch K950 Ultra Waterproof', 
+  price: '129,000', 
+  description: 'Reloj inteligente impermeable con monitor de salud, notificaciones, control de música, linterna y personalización de carátulas.', 
+  image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/445317/1697575434iiii.jpeg' 
 },
 { 
-  nombre: 'Smart Watch T800 Ultra 2 Doble Correa', 
-  precio: '59,000', 
-  descripción: '', 
-  imagen: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/669114/1714512204Imagen%20de%20WhatsApp%202024-04-30%20a%20las%2010.53.14_740e6025.jpg' 
+  name: 'Smart Watch T800 Ultra 2 Doble Correa', 
+  price: '59,000', 
+  description: '', 
+  image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/669114/1714512204Imagen%20de%20WhatsApp%202024-04-30%20a%20las%2010.53.14_740e6025.jpg' 
 },
 { 
-  nombre: 'Smart Watch Ultra 2 Gama Alta', 
-  precio: '139,000', 
-  descripción: 'Reloj inteligente premium con alto rendimiento, carga rápida, personalización de carátulas, y monitoreo de salud.', 
-  imagen: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/711848/1710453560WhatsApp%20Image%202024-03-14%20at%209.33.01%20AM.jpeg' 
+  name: 'Smart Watch Ultra 2 Gama Alta', 
+  price: '139,000', 
+  description: 'Reloj inteligente premium con alto rendimiento, carga rápida, personalización de carátulas, y monitoreo de salud.', 
+  image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/711848/1710453560WhatsApp%20Image%202024-03-14%20at%209.33.01%20AM.jpeg' 
 },
 {
-  nombre: 'Reloj Smart Watch Táctil Redondo K700',
-  precio: '129,000',
-  descripción: 'Reloj inteligente redondo con GPS, pantalla táctil de 1.43", monitor de ritmo cardíaco, 100 modos deportivos, Bluetooth, carga rápida, batería de 3 días, llamadas, notificaciones, asistente de voz.',
-  imagen: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/916371/1718471497RELOJ%20K700.jpg'
+  name: 'Reloj Smart Watch Táctil Redondo K700',
+  price: '129,000',
+  description: 'Reloj inteligente redondo con GPS, pantalla táctil de 1.43", monitor de ritmo cardíaco, 100 modos deportivos, Bluetooth, carga rápida, batería de 3 días, llamadas, notificaciones, asistente de voz.',
+  image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/916371/1718471497RELOJ%20K700.jpg'
 },
 {
-  nombre: 'Smart Watch T800',
-  precio: '65,000',
-  descripción: 'Reloj inteligente con pantalla LCD HD 1.81", Bluetooth, 450mAh, carga inalámbrica, modos deportivos, monitoreo de salud, asistente de voz, personalización de carátulas.',
-  imagen: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/803240/1713994717WhatsApp%20Image%202024-04-24%20at%204.35.03%20PM.jpeg'
+  name: 'Smart Watch T800',
+  price: '65,000',
+  description: 'Reloj inteligente con pantalla LCD HD 1.81", Bluetooth, 450mAh, carga inalámbrica, modos deportivos, monitoreo de salud, asistente de voz, personalización de carátulas.',
+  image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/803240/1713994717WhatsApp%20Image%202024-04-24%20at%204.35.03%20PM.jpeg'
 },
 {
-  nombre: 'Reloj Smart Watch F8 Fitness Monitor',
-  precio: '99,000',
-  descripción: 'Reloj inteligente con monitor de ritmo cardiaco, podómetro, control de cámara, alertas de llamadas y mensajes, monitor de sueño, y múltiples aplicaciones de fitness.',
-  imagen: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/52129/17030803461703080346photo5172861897408621119%20(1).jpg'
+  name: 'Reloj Smart Watch F8 Fitness Monitor',
+  price: '99,000',
+  description: 'Reloj inteligente con monitor de ritmo cardiaco, podómetro, control de cámara, alertas de llamadas y mensajes, monitor de sueño, y múltiples aplicaciones de fitness.',
+  image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/52129/17030803461703080346photo5172861897408621119%20(1).jpg'
 },
 {
-  nombre: 'Reloj Inteligente Smart Watch T500 Pro',
-  precio: '49,000',
-  descripción: '',
-  imagen: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/733689/1711480324T500%20PRO1.jpg'
+  name: 'Reloj Inteligente Smart Watch T500 Pro',
+  price: '49,000',
+  description: '',
+  image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/733689/1711480324T500%20PRO1.jpg'
 },
 {
-  nombre: 'Patillera Y Afeitadora Buda',
-  precio: '33,000',
-  descripción: 'Patillera y rasuradora metálica con diseño antideslizante, corte de cabello potente y silencioso, recargable, incluye 3 guías de corte y cepillo de limpieza.',
-  imagen: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/88251/171157679217030150911703015091photo_4976845766182152946_x.jpg'
+  name: 'Patillera Y Afeitadora Buda',
+  price: '33,000',
+  description: 'Patillera y rasuradora metálica con diseño antideslizante, corte de cabello potente y silencioso, recargable, incluye 3 guías de corte y cepillo de limpieza.',
+  image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/88251/171157679217030150911703015091photo_4976845766182152946_x.jpg'
 },
 {
-  nombre: 'Mini Afeitadora Bb 339d',
-  precio: '49,000',
-  descripción: 'Afeitadora eléctrica compacta con cuchillas de alta velocidad, cabezal flotante 3D, impermeable IPX7, carga rápida USB y 90 minutos de uso continuo.',
-  imagen: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/382606/17018728061701872806MIN-2.jpg'
+  name: 'Mini Afeitadora Bb 339d',
+  price: '49,000',
+  description: 'Afeitadora eléctrica compacta con cuchillas de alta velocidad, cabezal flotante 3D, impermeable IPX7, carga rápida USB y 90 minutos de uso continuo.',
+  image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/382606/17018728061701872806MIN-2.jpg'
 },
 {
-  nombre: 'Afeitadora Electrica Profesional',
-  precio: '85,000',
-  descripción: 'Afeitadora recargable con cabezal flotante, impermeable IPX7, pantalla LED, batería de 1200mAh, y 150 minutos de uso con 2 horas de carga.',
-  imagen: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/666967/1708543344Afeitadora.png'
+  name: 'Afeitadora Electrica Profesional',
+  price: '85,000',
+  description: 'Afeitadora recargable con cabezal flotante, impermeable IPX7, pantalla LED, batería de 1200mAh, y 150 minutos de uso con 2 horas de carga.',
+  image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/666967/1708543344Afeitadora.png'
 },
 {
-  nombre: 'Afeitadora Multifuncional 3 En 1 Dorada',
-  precio: '65,000',
-  descripción: 'Afeitadora eléctrica 3 en 1 con pantalla LCD, motor potente, diseño compacto y portátil, fácil limpieza, carga rápida y uso en cualquier momento.',
-  imagen: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/862656/1715787767maquina%203%20en%201112.jpg'
+  name: 'Afeitadora Multifuncional 3 En 1 Dorada',
+  price: '65,000',
+  description: 'Afeitadora eléctrica 3 en 1 con pantalla LCD, motor potente, diseño compacto y portátil, fácil limpieza, carga rápida y uso en cualquier momento.',
+  image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/862656/1715787767maquina%203%20en%201112.jpg'
 },
 {
-  nombre: 'Maquina Rasuradora Inalámbrica Wahl Prof',
-  precio: '85,000',
-  descripción: 'Rasuradora Wahl inalámbrica con batería de litio, 70 minutos de uso continuo, motor potente de 6500 RPM, cuchillas profesionales ajustables para cortes precisos.',
-  imagen: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/164867/1702306003170230600310000295_10352990_1155538.png'
+  name: 'Maquina Rasuradora Inalámbrica Wahl Prof',
+  price: '85,000',
+  description: 'Rasuradora Wahl inalámbrica con batería de litio, 70 minutos de uso continuo, motor potente de 6500 RPM, cuchillas profesionales ajustables para cortes precisos.',
+  image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/164867/1702306003170230600310000295_10352990_1155538.png'
 },
 {
-  nombre: 'Máquina De Afeitar 3 En 1 Rasuradora',
-  precio: '59,000',
-  descripción: '',
-  imagen: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/438077/16971267472.jpg'
+  name: 'Máquina De Afeitar 3 En 1 Rasuradora',
+  price: '59,000',
+  description: '',
+  image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/438077/16971267472.jpg'
 },
 {
-  nombre: 'Extractor De Leche Eléctrico Doble',
-  precio: '69,000',
-  descripción: '',
-  imagen: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/761617/1712617177EXTRACTOR%20M371%20JPG'
+   "name": 'Extractor De Leche Eléctrico Doble',
+  price: '69,000',
+  description: '',
+  image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/761617/1712617177EXTRACTOR%20M371%20JPG'
 },
 {
         "name": "Extractor De Leche Materna Eléctrico",
@@ -420,12 +429,6 @@
         "price": "49,000",
         "description": "Cobertor para bebé en diseño de conejo. Suave, cálido y perfecto para el sueño.",
         "image": "https://d39ru7awumhhs2.cloudfront.net/colombia/products/95972/17023939341702393934sleeping%20conejo1.jpg"
-    },
-    {
-        "name": "Extractor De Leche Materna Eléctrico",
-        "price": "89,000",
-        "description": "Extractor de leche eléctrico, compacto y fácil de usar. Ideal para el uso diario.",
-        "image": "https://d39ru7awumhhs2.cloudfront.net/colombia/products/636963/1707253034WhatsApp%20Image%202024-02-01%20at%204.52.39%20PM.jpeg"
     },
     {
         "name": "Happy Bolsa De Dormir Cojín Sleeping Par",
@@ -1130,12 +1133,6 @@
     image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/695941/17098387214L%20DIGITAL.jpg'
 },
 {
-    name: 'Extractor De Leche Materna Eléctrico',
-    price: '89,000',
-    description: 'Extractor eléctrico de leche materna, ideal para una extracción eficiente y cómoda. Fácil de usar con ajuste de succión y velocidad para mayor comodidad.',
-    image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/636963/1707253034WhatsApp%20Image%202024-02-01%20at%204.52.39%20PM.jpeg'
-},
-{
     name: 'Freidora Manual Litros',
     price: '249,000',
     description: 'Freidora de aire con capacidad de 6L, sin necesidad de aceite. Incluye control de temperatura y temporizador, ideal para una cocción saludable.',
@@ -1776,7 +1773,7 @@
     price: '149,000',
     description: 'Impresora térmica de recibos con Bluetooth y soporte para Android, iOS y Windows. Imprime a 203 ppp con una velocidad de 2.756 in/s.',
     image: 'https://d39ru7awumhhs2.cloudfront.net/colombia/products/908611/1717860497Dise%C3%B1o%20sin%20t%C3%ADtulo%20-%202024-06-07T170332.517.png'
-},
+            },
             {
                 name: 'Tapete Alfombra Para Baño Absorbente',
                 price: '37,000',
@@ -1788,6 +1785,10 @@
 
         const productContainer = document.getElementById('product-list');
 
+        function normalizeString(str) {
+            return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^\w\s]/gi, '').toLowerCase();
+        }
+
         function renderProducts(products) {
             productContainer.innerHTML = '';
             products.forEach((product, index) => {
@@ -1798,17 +1799,17 @@
                     <h2 contenteditable="true" data-index="${index}" data-attr="name">${product.name}</h2>
                     <p class="price" contenteditable="true" data-index="${index}" data-attr="price">${product.price}</p>
                     <p contenteditable="true" data-index="${index}" data-attr="description">${product.description}</p>
-                    <button onclick="editProduct(${index})">Coll</button>
-                    <button onclick="buyProduct('${product.name}')">Comprar WhatsApp</button>
+                    <button onclick="editProduct(${index})">Col</button>
+                    <button onclick="buyProduct('${product.name}')">Comprar por WhatsApp</button>
                 `;
                 productContainer.appendChild(productElement);
             });
         }
 
         document.getElementById('search').addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase();
+            const query = normalizeString(e.target.value);
             const filteredProducts = products.filter(product => 
-                product.name.toLowerCase().includes(query)
+                normalizeString(product.name).includes(query)
             );
             renderProducts(filteredProducts);
         });
