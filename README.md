@@ -13,7 +13,7 @@
             color: #000;
         }
         header {
-            background-color: #ffa500;
+            background-color: #FF8C00;
             color: #000;
             text-align: center;
             padding: 10px;
@@ -64,7 +64,7 @@
             padding: 20px;
         }
         .product-details h2 {
-            color: #ff6600;
+            color: #FF8C00;
         }
         .product-details p {
             margin: 10px 0;
@@ -106,7 +106,7 @@
             text-align: center;
             padding: 10px 20px;
             font-size: 14px;
-            background-color: #ffa500;
+            background-color: #FF8C00;
             color: #000;
             text-decoration: none;
             border-radius: 5px;
