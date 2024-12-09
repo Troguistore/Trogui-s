@@ -131,7 +131,14 @@
     </div>
     <div class="product-details">
         <h2>Organizador Esquinero</h2>
-        <p>Altura ajustable: De 1 m a 2.29 m, se adapta a cualquier espacio. 4 estantes amplios, material duradero, instalación fácil y más.</p>
+        <p>Altura ajustable: De 1 m a 2.29 m, se adapta a cualquier espacio.
+4 estantes amplios: De 33 cm x 21.5 cm, ideales para organizar productos para toda la familia.
+Material duradero: Acero inoxidable, resistente al óxido para una vida útil prolongada.
+Instalación fácil: Sin herramientas ni perforaciones, listo en minutos.
+Estabilidad asegurada: Extremos antideslizantes que ofrecen firmeza en cualquier superficie.
+Bandeja con ganchos: Perfecta para toallas u otros accesorios.
+Espacio optimizado: Diseñado para esquinas, aprovecha al máximo el espacio del baño.
+Envíos gratis y pago contra entrega: Recíbelo sin costos adicionales y paga al recibirl.</p>
         <p class="price">
             <span class="old-price">75,000</span>
             <span class="new-price">59,000 COP</span>
