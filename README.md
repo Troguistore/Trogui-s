@@ -94,11 +94,11 @@ export default function TroguiStore() {
       <header className="bg-white shadow sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between p-4 gap-4">
           <div className="flex items-center gap-3">
-            <img
-              src="/mnt/data/IMG_2611.jpeg"
-              alt="Logo TROGUI"
-              className="w-24 h-24 object-contain rounded-2xl"
-            />
+            <div className="bg-orange-500 rounded-2xl px-5 py-3 flex items-center justify-center shadow-xl">
+              <span className="text-black text-4xl font-extrabold tracking-tight">
+                TROGUI
+              </span>
+            </div>
             <div>
               <h1 className="font-extrabold text-3xl">TROGUI</h1>
               <p className="text-sm text-gray-500">
