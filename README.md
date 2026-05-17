@@ -1,5 +1,25 @@
+import { useEffect, useState } from 'react';
+
 export default function TroguiStore() {
   const whatsappLink = 'https://wa.link/lhneng';
+
+  const notifications = [
+    'Camila realizó un pedido desde Cali',
+    'Juan David compró para Medellín',
+    'Laura pidió envío para Bogotá',
+    'Andrés realizó una compra desde Pereira',
+    'Valentina compró un producto viral desde Barranquilla'
+  ];
+
+  const [currentNotification, setCurrentNotification] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentNotification((prev) => (prev + 1) % notifications.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const products = [
     {
@@ -74,9 +94,11 @@ export default function TroguiStore() {
       <header className="bg-white shadow sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between p-4 gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-14 h-14 rounded-full bg-black text-white flex items-center justify-center font-bold text-2xl">
-              T
-            </div>
+            <img
+              src="/mnt/data/IMG_2611.jpeg"
+              alt="Logo TROGUI"
+              className="w-24 h-24 object-contain rounded-2xl"
+            />
             <div>
               <h1 className="font-extrabold text-3xl">TROGUI</h1>
               <p className="text-sm text-gray-500">
@@ -116,8 +138,8 @@ export default function TroguiStore() {
           </p>
 
           <div className="flex gap-3 flex-wrap">
-            <span className="bg-red-500 px-4 py-2 rounded-full animate-bounce">
-              Promo termina en 2 horas
+            <span className="bg-red-500 px-4 py-2 rounded-full flex items-center gap-2 animate-bounce font-bold">
+              ⏰ Oferta termina en 2 horas
             </span>
 
             <span className="bg-green-500 px-4 py-2 rounded-full">
@@ -147,8 +169,8 @@ export default function TroguiStore() {
                   className="w-full h-64 object-cover"
                 />
 
-                <div className="absolute top-3 left-3 bg-red-600 text-white px-3 py-1 rounded-full text-xs animate-pulse">
-                  Últimas unidades
+                <div className="absolute top-3 left-3 bg-red-600 text-white px-3 py-2 rounded-full text-xs animate-pulse flex items-center gap-2 font-bold shadow-lg">
+                  ⏰ Últimas unidades
                 </div>
 
                 <div className="absolute bottom-3 left-3 bg-black/80 text-white px-3 py-1 rounded-full text-xs">
@@ -187,8 +209,11 @@ export default function TroguiStore() {
                   ⚠️ Solo quedan {product.stock} unidades
                 </p>
 
-                <button className="w-full bg-black text-white py-3 rounded-2xl mt-5 font-bold hover:bg-gray-800">
-                  Ver Producto
+                <button
+                  onClick={() => window.open(whatsappLink, '_blank')}
+                  className="w-full bg-black text-white py-3 rounded-2xl mt-5 font-bold hover:bg-gray-800 transition-all duration-300"
+                >
+                  Comprar Ahora
                 </button>
               </div>
             </div>
@@ -323,8 +348,8 @@ export default function TroguiStore() {
         💬
       </a>
 
-      <div className="fixed bottom-5 left-5 bg-white shadow-xl rounded-2xl px-4 py-3 text-sm animate-pulse">
-        🔥 Juan Camilo hizo un pedido para Medellín
+      <div className="fixed bottom-5 left-5 bg-white shadow-2xl rounded-2xl px-4 py-3 text-sm animate-pulse z-50 border border-orange-200">
+        🔥 {notifications[currentNotification]}
       </div>
 
       <button className="fixed bottom-3 left-1/2 text-xs opacity-30">
