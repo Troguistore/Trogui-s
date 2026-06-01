@@ -520,19 +520,97 @@ nav{background:var(--orange);position:sticky;top:70px;z-index:800}
   <button class="admin-btn e-btn" title="Editar Página" onclick="adminAuth('e')">E</button>
 </div>
 
-<!-- ADMIN R: PRODUCTS -->
-<div class="admin-overlay" id="admin-r">
-  <div class="admin-panel">
-    <h2>✏️ Editor de Productos</h2>
-    <div class="visitors-badge"><span class="visitors-dot"></span><span id="v1">0</span> personas en la página ahora</div>
-    <button class="btn-add-prod" onclick="addNewProduct()">+ Agregar Producto</button>
-    <div id="admin-product-list"></div>
-    <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
-      <button class="btn-save-admin" onclick="saveAllProducts()">💾 Guardar Todos</button>
-      <button onclick="closeAdmin('admin-r')" style="background:#eee;border:none;padding:10px 20px;border-radius:10px;cursor:pointer;font-weight:700">Cerrar</button>
-    </div>
-  </div>
-</div>
+function renderAdminProducts(){
+  const list = document.getElementById('admin-product-list');
+  list.innerHTML = '';
+  products.forEach(p => {
+    const div = document.createElement('div');
+    div.className = 'admin-product-item';
+    div.id = 'aitem-' + p.id;
+
+    // Construir preview de medios
+    function buildPreviews(imgs){
+      return (imgs||[]).map(src => {
+        if(/\.(mp4|webm|ogg|mov)(\?.*)?$/i.test(src)){
+          return `<video src="${src}" style="width:80px;height:80px;object-fit:cover;border-radius:10px;border:2px solid var(--border)" muted autoplay loop playsinline></video>`;
+        }
+        return `<img src="${src}" style="width:80px;height:80px;object-fit:cover;border-radius:10px;border:2px solid var(--border)" onerror="this.style.display='none'">`;
+      }).join('');
+    }
+
+    div.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <b style="color:var(--orange);font-size:13px">${p.id} — ${p.name}</b>
+        <button class="btn-del-admin" onclick="deleteProduct('${p.id}')">🗑️ Eliminar</button>
+      </div>
+
+      <label>Nombre</label>
+      <input type="text" id="an-${p.id}" value="${p.name.replace(/"/g,'&quot;')}">
+
+      <label>Descripción</label>
+      <textarea id="ad-${p.id}" rows="3">${p.desc||''}</textarea>
+
+      <div class="admin-row2">
+        <div><label>Precio ($)</label><input type="number" id="ap-${p.id}" value="${p.price}"></div>
+        <div><label>Precio Anterior ($)</label><input type="number" id="ao-${p.id}" value="${p.oldPrice}"></div>
+      </div>
+      <div class="admin-row2">
+        <div><label>Vendidos</label><input type="number" id="av-${p.id}" value="${p.sold}"></div>
+        <div><label>Estrellas (1-5)</label><input type="number" id="as-${p.id}" value="${p.stars}" min="1" max="5"></div>
+      </div>
+
+      <label>Categoría</label>
+      <select id="ac-${p.id}">
+        ${['hogar','tecnologia','salud','belleza','fitness','accesorios','juguetes','cocina','ropa','bebes','viajes','herramientas','infantil']
+          .map(c=>`<option value="${c}"${p.cat===c?' selected':''}>${c}</option>`).join('')}
+      </select>
+
+      <label>URLs de Imágenes / Videos / GIFs (una por línea)</label>
+      <textarea id="ai-${p.id}" rows="4"
+        placeholder="https://imagen.jpg&#10;https://video.mp4&#10;https://animacion.gif"
+      >${(p.imgs||[]).join('\n')}</textarea>
+
+      <div style="margin:10px 0">
+        <label style="display:block;margin-bottom:6px">📁 Subir desde galería / fototeca (imagen, video o GIF)</label>
+        <input type="file" id="file-${p.id}" accept="image/*,video/*,image/gif" multiple
+          style="width:100%;padding:8px;border:2px dashed var(--orange);border-radius:10px;background:#fff8f0;cursor:pointer"
+          onchange="handleFileUpload('${p.id}', this)">
+        <small style="color:var(--gray);font-size:11px">Puedes seleccionar varias imágenes/videos a la vez</small>
+      </div>
+
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px" id="preview-${p.id}">
+        ${buildPreviews(p.imgs)}
+      </div>
+
+      <div class="admin-row2" style="margin-top:8px">
+        <div><label>Últimas unidades</label>
+          <select id="alu-${p.id}">
+            <option value="false"${!p.lastUnits?' selected':''}>No</option>
+            <option value="true"${p.lastUnits?' selected':''}>Sí</option>
+          </select>
+        </div>
+        <div><label>Timer (segundos)</label><input type="number" id="at-${p.id}" value="${p.timer}"></div>
+      </div>
+
+      <button class="btn-save-admin" style="width:100%;margin-top:12px;font-size:14px"
+        onclick="saveOneProduct('${p.id}')">💾 Guardar este producto</button>`;
+
+    list.appendChild(div);
+
+    // Preview en vivo al escribir URLs
+    const ta = div.querySelector(`#ai-${p.id}`);
+    const prev = div.querySelector(`#preview-${p.id}`);
+    ta.addEventListener('input', () => {
+      const urls = ta.value.split('\n').map(u=>u.trim()).filter(Boolean);
+      prev.innerHTML = urls.map(src => {
+        if(/\.(mp4|webm|ogg|mov)(\?.*)?$/i.test(src)){
+          return `<video src="${src}" style="width:80px;height:80px;object-fit:cover;border-radius:10px;border:2px solid var(--border)" muted autoplay loop playsinline></video>`;
+        }
+        return `<img src="${src}" style="width:80px;height:80px;object-fit:cover;border-radius:10px;border:2px solid var(--border)" onerror="this.style.display='none'">`;
+      }).join('');
+    });
+  });
+}
 
 <!-- ADMIN C: ORDERS -->
 <div class="admin-overlay" id="admin-c">
@@ -1942,6 +2020,20 @@ function saveReviews(){
   localStorage.setItem('trogui_reviews',JSON.stringify(reviews));
   showFloatMsg('✅ Reseñas guardadas!');
 }
+</script>
+<script>
+// Carga el logo desde base64 guardado o usa SVG inline
+(function(){
+  const saved = localStorage.getItem('trogui_logo_b64');
+  const el = document.getElementById('main-logo');
+  if(saved){ el.src = saved; }
+  else {
+    el.outerHTML = `<svg id="main-logo" width="160" height="50" viewBox="0 0 160 50" xmlns="http://www.w3.org/2000/svg">
+      <rect width="160" height="50" rx="8" fill="#FF5200"/>
+      <text x="12" y="36" font-family="Poppins,sans-serif" font-weight="900" font-size="26" fill="#1a1a2e">TROGÜI</text>
+    </svg>`;
+  }
+})();
 </script>
 </body>
 </html>
