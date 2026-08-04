@@ -39,20 +39,8 @@ button{font-family:inherit;cursor:pointer;border:none;}
 .hidden{display:none !important;}
 ::selection{background:var(--orange);color:#fff;}
 
-/* ---------- TOP UTILITY BAR ---------- */
-.topbar{
-  background:var(--black);
-  color:#cfcfc6;
-  font-size:.72rem;
-  padding:6px 14px;
-  display:flex;
-  justify-content:center;
-  gap:18px;
-  flex-wrap:wrap;
-  letter-spacing:.02em;
-  text-align:center;
-}
-.topbar b{color:var(--orange-light);}
+/* ---------- ICONOS ---------- */
+.icon{width:17px;height:17px;flex:none;display:inline-block;vertical-align:-4px;}
 
 /* ---------- HEADER ---------- */
 header.site-header{
@@ -96,43 +84,74 @@ header.site-header{
   width:38px;background:var(--orange);border-radius:999px;color:#fff;
   display:flex;align-items:center;justify-content:center;font-size:1rem;
 }
-.header-actions{display:flex;align-items:center;gap:14px;}
-.header-actions a{color:#fff;font-size:.8rem;display:flex;flex-direction:column;align-items:center;gap:2px;opacity:.9;}
-.header-actions a:hover{opacity:1;color:var(--orange-light);}
-.icon-circle{
-  width:22px;height:22px;display:flex;align-items:center;justify-content:center;
+.header-wsp{
+  display:flex;align-items:center;gap:7px;background:var(--green);color:#fff;
+  padding:9px 15px;border-radius:999px;font-size:.82rem;font-weight:700;flex:none;
+  white-space:nowrap;transition:filter .15s;
 }
+.header-wsp:hover{filter:brightness(1.08);}
+.header-wsp .icon{width:18px;height:18px;}
+.header-wsp span{display:none;}
+@media (min-width:520px){ .header-wsp span{display:inline;} }
 
 /* ---------- NAV CATEGORIES ---------- */
 nav.cat-nav{
-  background:var(--orange);
+  background:var(--black);
+  border-bottom:1px solid #2a2a20;
   overflow-x:auto;
   white-space:nowrap;
   -ms-overflow-style:none;scrollbar-width:none;
 }
 nav.cat-nav::-webkit-scrollbar{display:none;}
-.cat-nav-inner{max-width:1280px;margin:0 auto;display:flex;gap:4px;padding:0 10px;}
+.cat-nav-inner{max-width:1280px;margin:0 auto;display:flex;gap:2px;padding:0 10px;}
 .cat-chip{
-  color:#fff;font-weight:600;font-size:.82rem;
-  padding:11px 16px;display:inline-block;border-bottom:3px solid transparent;
+  color:#b9b9b0;font-weight:600;font-size:.8rem;
+  padding:11px 15px;display:inline-block;border-bottom:2px solid transparent;
   transition:.15s;
 }
-.cat-chip.active,.cat-chip:hover{background:rgba(0,0,0,.12);border-bottom-color:#fff;}
+.cat-chip.active,.cat-chip:hover{background:rgba(255,106,0,.1);border-bottom-color:var(--orange);color:#fff;}
 
-/* ---------- MARQUEE TRUST BAR ---------- */
+/* ---------- MARQUEE TRUST BAR (pie de página) ---------- */
 .marquee{
   background:var(--black);
-  color:var(--orange-light);
+  color:#cfcfc6;
   padding:8px 0;overflow:hidden;position:relative;
-  font-size:.78rem;font-weight:600;letter-spacing:.03em;
+  font-size:.74rem;font-weight:600;letter-spacing:.02em;
 }
 .marquee-track{
-  display:flex;gap:60px;white-space:nowrap;
-  animation:scrollLeft 22s linear infinite;
+  display:flex;gap:50px;white-space:nowrap;
+  animation:scrollLeft 26s linear infinite;
   width:max-content;
 }
 @keyframes scrollLeft{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-.marquee-track span{display:flex;align-items:center;gap:8px;}
+.marquee-track span{display:flex;align-items:center;gap:7px;}
+.marquee-track .icon{width:14px;height:14px;color:var(--orange-light);}
+
+/* ---------- TRUST STRIP / TRANSPORTADORAS (parte inferior) ---------- */
+.trust-strip{background:#fff;border-top:1px solid var(--gray-light);padding:22px 14px;margin-top:36px;}
+.trust-strip-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+@media (max-width:700px){ .trust-strip-inner{grid-template-columns:1fr 1fr;} }
+.ts-item{display:flex;align-items:center;gap:10px;}
+.ts-item .icon{width:24px;height:24px;color:var(--orange);}
+.ts-item b{display:block;font-size:.84rem;}
+.ts-item span{font-size:.72rem;color:var(--gray);}
+.carriers-block{max-width:1180px;margin:0 auto;padding:22px 14px 4px;text-align:center;}
+.carriers-label{font-size:.74rem;color:var(--gray);margin:0 0 10px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;}
+.carriers-row{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
+.carrier-badge{border:1px solid var(--gray-light);border-radius:999px;padding:7px 16px;font-size:.78rem;font-weight:700;color:#333;background:#fafaf7;}
+.carriers-mini{display:flex;align-items:center;gap:8px;font-size:.72rem;color:var(--gray);background:#f7f6f2;border-radius:8px;padding:9px 10px;margin-top:6px;}
+.carriers-mini .icon{width:15px;height:15px;color:var(--orange);}
+
+/* ---------- NOTIFICACIONES DE CONFIANZA ---------- */
+.notif-host{position:fixed;bottom:88px;left:14px;z-index:85;display:flex;flex-direction:column;gap:8px;max-width:260px;}
+.notif-toast{
+  background:#fff;border:1px solid var(--gray-light);border-left:3px solid var(--orange);border-radius:10px;
+  padding:10px 12px;display:flex;align-items:center;gap:8px;font-size:.76rem;font-weight:600;color:#222;
+  box-shadow:0 10px 26px rgba(0,0,0,.14);opacity:0;transform:translateY(8px);transition:opacity .3s, transform .3s;
+}
+.notif-toast.show{opacity:1;transform:translateY(0);}
+.notif-toast .icon{width:16px;height:16px;color:var(--orange);}
+@media (max-width:600px){ .notif-host{left:10px;bottom:78px;max-width:220px;} }
 
 /* ---------- HERO ---------- */
 .hero{
@@ -159,11 +178,13 @@ nav.cat-nav::-webkit-scrollbar{display:none;}
   padding:6px 12px;border-radius:999px;font-size:.72rem;font-weight:600;
   display:flex;align-items:center;gap:6px;
 }
+.hero-badge .icon{width:14px;height:14px;color:var(--orange-light);}
 .hero-cta{
   background:var(--orange);color:#fff;font-weight:700;padding:13px 26px;
-  border-radius:999px;font-size:.95rem;display:inline-block;margin-top:14px;
+  border-radius:999px;font-size:.95rem;display:inline-flex;align-items:center;gap:8px;margin-top:14px;
   animation:pulseBtn 1.8s ease-in-out infinite;box-shadow:0 4px 14px rgba(255,106,0,.4);
 }
+.hero-cta .icon{width:18px;height:18px;}
 @keyframes pulseBtn{0%,100%{transform:scale(1);}50%{transform:scale(1.045);}}
 
 /* ---------- SECTION TITLES ---------- */
@@ -217,17 +238,19 @@ nav.cat-nav::-webkit-scrollbar{display:none;}
   font-size:.72rem;color:var(--orange-dark);font-weight:700;background:#fff4ea;
   padding:4px 8px;border-radius:6px;display:flex;align-items:center;gap:5px;
 }
-.card-actions{display:flex;gap:6px;margin-top:4px;}
 .btn{
-  flex:1;text-align:center;padding:9px 6px;border-radius:9px;font-size:.76rem;font-weight:700;
+  text-align:center;padding:10px 6px;border-radius:9px;font-size:.8rem;font-weight:700;
   display:flex;align-items:center;justify-content:center;gap:5px;transition:.15s;
 }
+.btn.full{width:100%;margin-top:2px;}
 .btn-dark{background:var(--black);color:#fff;}
 .btn-dark:hover{background:#000;}
-.btn-orange{background:var(--orange);color:#fff;box-shadow:0 3px 10px rgba(255,106,0,.35);}
+.btn-orange{background:var(--orange);color:#fff;}
 .btn-orange:hover{background:var(--orange-dark);}
-.btn-orange.pulse{animation:pulseBtn 1.6s ease-in-out infinite;}
 .sold-row{font-size:.7rem;color:var(--gray);}
+.timer-row .icon{width:13px;height:13px;color:var(--orange-dark);}
+.empty-ico{color:var(--gray);margin-bottom:8px;}
+.empty-ico .icon{width:34px;height:34px;}
 
 /* ---------- PRODUCT DETAIL ---------- */
 .detail-wrap{max-width:1180px;margin:0 auto;padding:18px 14px 50px;}
@@ -254,18 +277,20 @@ nav.cat-nav::-webkit-scrollbar{display:none;}
 .detail-price-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;}
 .detail-price-now{font-size:2rem;font-weight:900;color:var(--orange-dark);}
 .detail-price-old{font-size:1.1rem;color:#9c9c94;text-decoration:line-through;}
-.savings{font-size:.8rem;color:#1a8a4a;font-weight:700;margin-top:4px;}
+.savings{display:flex;align-items:center;gap:6px;font-size:.8rem;color:#1a8a4a;font-weight:700;margin-top:4px;}
+.savings .icon{width:14px;height:14px;}
 .detail-timer{
   display:inline-flex;align-items:center;gap:8px;background:var(--black);color:#fff;
   padding:8px 14px;border-radius:999px;font-size:.82rem;font-weight:700;margin:10px 0;
 }
+.detail-timer .icon{width:15px;height:15px;color:var(--orange-light);}
 .detail-timer b{color:var(--orange-light);font-variant-numeric:tabular-nums;}
 .trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:16px 0;}
 .trust-item{
   display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--gray-light);
   border-radius:10px;padding:9px 10px;font-size:.76rem;font-weight:600;color:#333;
 }
-.trust-item .ico{font-size:1.1rem;}
+.trust-item .icon{width:19px;height:19px;color:var(--orange);flex:none;}
 .qty-row{display:flex;align-items:center;gap:14px;margin:14px 0;}
 .qty-box{display:flex;align-items:center;border:1px solid var(--gray-light);border-radius:10px;overflow:hidden;}
 .qty-box button{width:36px;height:36px;background:#f5f4ef;font-size:1.1rem;font-weight:700;}
@@ -276,6 +301,7 @@ nav.cat-nav::-webkit-scrollbar{display:none;}
   display:flex;align-items:center;justify-content:center;gap:10px;
 }
 .cta-whatsapp{background:var(--green);color:#fff;box-shadow:0 6px 18px rgba(37,211,102,.4);animation:pulseBtn 1.7s ease-in-out infinite;}
+.cta-whatsapp .icon{width:20px;height:20px;}
 .cta-buy{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(255,106,0,.4);}
 .cta-cart{background:var(--black);color:#fff;}
 .share-row{display:flex;gap:10px;margin-top:6px;}
@@ -283,6 +309,7 @@ nav.cat-nav::-webkit-scrollbar{display:none;}
   flex:1;border:1px solid var(--gray-light);border-radius:10px;padding:9px;text-align:center;font-size:.78rem;font-weight:700;background:#fff;color:#333;
   display:flex;align-items:center;justify-content:center;gap:6px;
 }
+.share-btn .icon{width:15px;height:15px;}
 .share-btn:hover{border-color:var(--orange);color:var(--orange-dark);}
 
 .desc-block{max-width:1180px;margin:30px auto;padding:0 14px;}
@@ -310,6 +337,7 @@ nav.cat-nav::-webkit-scrollbar{display:none;}
 .review-loc{font-size:.72rem;color:var(--gray);}
 .review-text{font-size:.85rem;color:#333;line-height:1.45;}
 .verified{font-size:.68rem;color:#1a8a4a;font-weight:700;margin-top:6px;display:flex;align-items:center;gap:4px;}
+.verified .icon{width:13px;height:13px;}
 
 .related-block{max-width:1280px;margin:0 auto 50px;padding:0 14px;}
 
@@ -327,9 +355,10 @@ footer{background:var(--black);color:#d9d9d0;margin-top:40px;padding:40px 14px 2
 .social-row{display:flex;gap:10px;margin-top:10px;}
 .social-pill{
   width:38px;height:38px;border-radius:50%;background:#242419;display:flex;align-items:center;justify-content:center;
-  font-size:1.05rem;border:1px solid #33332a;
+  border:1px solid #33332a;color:#e2e2d8;
 }
-.social-pill:hover{background:var(--orange);}
+.social-pill .icon{width:18px;height:18px;}
+.social-pill:hover{background:var(--orange);border-color:var(--orange);color:#fff;}
 .foot-bottom{
   max-width:1280px;margin:26px auto 0;padding-top:16px;border-top:1px solid #2a2a20;
   font-size:.72rem;color:#8c8c82;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
@@ -338,11 +367,12 @@ footer{background:var(--black);color:#d9d9d0;margin-top:40px;padding:40px 14px 2
 /* ---------- FLOATING BUTTONS ---------- */
 .fab-whatsapp{
   position:fixed;bottom:20px;right:18px;z-index:80;
-  width:58px;height:58px;background:var(--green);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.7rem;
+  width:56px;height:56px;background:var(--green);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:#fff;
   box-shadow:0 6px 18px rgba(0,0,0,.3);
   animation:whatsPulse 2s infinite;
 }
+.fab-whatsapp .icon{width:28px;height:28px;}
 @keyframes whatsPulse{
   0%{box-shadow:0 0 0 0 rgba(37,211,102,.55);}
   70%{box-shadow:0 0 0 14px rgba(37,211,102,0);}
@@ -493,7 +523,7 @@ const RAW_PRODUCTS = [
   {id:'T009',name:'Freidora de Aire 12L Extra Capacidad + Accesorios',cat:'cocina',
    imgs:['https://d39ru7awumhhs2.cloudfront.net/colombia/products/2152705/1778955350ChatGPT%20Image%2016%20may%202026,%2001_10_20%20p.m..png','https://d39ru7awumhhs2.cloudfront.net/colombia/products/2152705/1778955351ChatGPT%20Image%2016%20may%202026,%2001_05_39%20p.m..png','https://d39ru7awumhhs2.cloudfront.net/colombia/products/2152705/1778955351ChatGPT%20Image%2016%20may%202026,%2001_08_19%20p.m..png','https://d39ru7awumhhs2.cloudfront.net/colombia/products/2154464/1779231764AIRFRYER......jpg'],
    price:235000,oldPrice:420000,
-   desc:'🍟 Freidora de aire X HOME con extra capacidad 12L. Cocina más fácil, rápido y saludable con hasta 80% menos aceite. Panel moderno e intuitivo. Cocción rápida y uniforme. Incluye accesorios. Ideal para familias. Perfecto para papas, alitas, empanadas, pizzas y mucho más.',
+   desc:'Freidora de aire X HOME con extra capacidad 12L. Cocina más fácil, rápido y saludable con hasta 80% menos aceite. Panel moderno e intuitivo. Cocción rápida y uniforme. Incluye accesorios. Ideal para familias. Perfecto para papas, alitas, empanadas, pizzas y mucho más.',
    sold:55,stars:5,lastUnits:true,timer:24*60*60},
   {id:'T010',name:'Fire TV Stick 4K Control de Voz',cat:'tecnologia',
    imgs:['https://d39ru7awumhhs2.cloudfront.net/colombia/products/1884233/1753385392Imagen%20de%20WhatsApp%202025-07-24%20a%20las%2011.15.27_97e32929.jpg','https://d39ru7awumhhs2.cloudfront.net/colombia/products/2000277/1763589760fire%20tv%20magis..jpg','https://d39ru7awumhhs2.cloudfront.net/colombia/products/2000277/1767724666fire.jpg'],
@@ -1084,6 +1114,23 @@ sold:225,stars:5,lastUnits:false,timer:2*60*60},
    ========================================================= */
 const WHATSAPP_NUMBER = '573206572598';
 const PLACEHOLDER_IMG = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 400%22%3E%3Crect width=%22400%22 height=%22400%22 fill=%22%23f4f3ee%22/%3E%3Ctext x=%22200%22 y=%22210%22 font-size=%2228%22 font-family=%22Arial%22 fill=%22%23ff6a00%22 text-anchor=%22middle%22%3ETROG%C3%9CI%3C/text%3E%3C/svg%3E';
+
+/* ---------- Iconos SVG (sin emojis) ---------- */
+const ICONS = {
+  truck:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="7" width="14" height="10"/><path d="M15 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="1.6"/><circle cx="17.5" cy="19" r="1.6"/></svg>',
+  cash:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/></svg>',
+  shield:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5z"/><path d="M9 12l2 2 4-4"/></svg>',
+  repeat:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>',
+  clock:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>',
+  search:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>',
+  whatsapp:'<svg class="icon" viewBox="0 0 32 32" fill="currentColor"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.61 1.902 6.478L4 29l7.72-1.867A11.94 11.94 0 0 0 16 27c6.627 0 12-5.373 12-12S22.628 3 16.001 3zm6.994 17.02c-.29.815-1.44 1.5-2.36 1.694-.633.13-1.46.234-4.24-.906-3.556-1.47-5.84-5.05-6.017-5.285-.176-.235-1.44-1.916-1.44-3.655 0-1.74.91-2.594 1.234-2.95.324-.354.706-.443.94-.443.235 0 .47.003.674.013.216.01.507-.082.793.605.29.7.984 2.418 1.07 2.594.088.176.147.382.03.618-.117.235-.176.382-.35.588-.176.206-.368.46-.526.618-.176.176-.36.367-.156.72.206.353.914 1.51 1.964 2.446 1.35 1.203 2.49 1.576 2.844 1.752.353.176.56.147.766-.088.206-.235.882-1.03 1.117-1.383.235-.353.47-.294.793-.176.324.117 2.06.97 2.412 1.147.353.176.588.264.674.412.088.147.088.85-.204 1.665z"/></svg>',
+  instagram:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1"/></svg>',
+  tiktok:'<svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M14 3c.3 1.9 1.6 3.4 3.6 3.8v2.4c-1.3-.1-2.5-.5-3.6-1.2v6.4a5 5 0 1 1-4.3-5v2.3a2.7 2.7 0 1 0 1.9 2.6V3z"/></svg>',
+  link:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg>',
+  copy:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>',
+  check:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>',
+  bag:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>'
+};
 const ADMIN_PASS = '4325';
 const STORAGE_KEY = 'trogui_store_v1';
 const SOCIAL = {
@@ -1092,12 +1139,12 @@ const SOCIAL = {
 };
 
 const CAT_LABELS = {
-  cocina:{label:'Cocina', icon:'🍳'}, salud:{label:'Salud', icon:'💊'},
-  hogar:{label:'Hogar', icon:'🏠'}, tecnologia:{label:'Tecnología', icon:'📱'},
-  accesorios:{label:'Accesorios', icon:'🎒'}, juguetes:{label:'Juguetes', icon:'🧸'},
-  belleza:{label:'Belleza', icon:'💄'}, ropa:{label:'Ropa Deportiva', icon:'👕'},
-  bebes:{label:'Bebés', icon:'🍼'}, viajes:{label:'Viajes', icon:'🧳'},
-  herramientas:{label:'Herramientas', icon:'🛠️'}, infantil:{label:'Infantil', icon:'🎀'}
+  cocina:{label:'Cocina', icon:''}, salud:{label:'Salud', icon:''},
+  hogar:{label:'Hogar', icon:''}, tecnologia:{label:'Tecnología', icon:''},
+  accesorios:{label:'Accesorios', icon:''}, juguetes:{label:'Juguetes', icon:''},
+  belleza:{label:'Belleza', icon:''}, ropa:{label:'Ropa Deportiva', icon:''},
+  bebes:{label:'Bebés', icon:''}, viajes:{label:'Viajes', icon:''},
+  herramientas:{label:'Herramientas', icon:''}, infantil:{label:'Infantil', icon:''}
 };
 
 const PROBLEMA_POR_CATEGORIA = {
@@ -1126,7 +1173,7 @@ const CIUDADES_CO = ['Bogotá','Medellín','Cali','Barranquilla','Bucaramanga','
 'Ibagué','Cúcuta','Villavicencio','Santa Marta','Neiva','Armenia','Popayán','Valledupar','Montería','Pasto',
 'Sincelejo','Tuluá','Soacha','Envigado','Rionegro','Chía','Girardot'];
 const COMENTARIOS_POOL = [
-'Me llegó en pocos días y quedé feliz, la calidad superó lo que esperaba 😍',
+'Me llegó en pocos días y quedé feliz, la calidad superó lo que esperaba.',
 'Pedí contra entrega y todo salió perfecto, muy confiables.',
 'Excelente producto, exactamente como en las fotos. Ya hice mi segundo pedido.',
 'El empaque llegó impecable y el vendedor respondió todas mis dudas por WhatsApp.',
@@ -1245,11 +1292,14 @@ function shuffle(arr){
   return a;
 }
 
+const MIN_TIMER_SECONDS = 14*60; // mínimo 14 minutos
+function randomTimerSeconds(base){
+  base = base || 1800;
+  return Math.max(MIN_TIMER_SECONDS, base * (0.7 + Math.random()*1.6));
+}
 function initTimers(products){
   products.forEach(p=>{
-    const base = p.timer || 3600;
-    const randomized = Math.max(300, base * (0.6 + Math.random()*0.9));
-    STATE.timers[p.id] = { end: Date.now() + randomized*1000 };
+    STATE.timers[p.id] = { end: Date.now() + randomTimerSeconds(p.timer)*1000 };
   });
 }
 function tickTimers(){
@@ -1257,12 +1307,11 @@ function tickTimers(){
   document.querySelectorAll('[data-timer]').forEach(el=>{
     const id = el.getAttribute('data-timer');
     let t = STATE.timers[id];
-    if(!t){ t = {end: now + 1800*1000}; STATE.timers[id] = t; }
+    if(!t){ t = {end: now + randomTimerSeconds()*1000}; STATE.timers[id] = t; }
     let remaining = (t.end - now)/1000;
     if(remaining <= 0){
       const p = STATE.products.find(pp=>pp.id===id);
-      const base = (p && p.timer) ? p.timer : 1800;
-      const fresh = Math.max(300, base*(0.5+Math.random()*0.8));
+      const fresh = randomTimerSeconds(p && p.timer);
       t.end = now + fresh*1000;
       remaining = fresh;
     }
@@ -1320,21 +1369,19 @@ function renderHome(){
   const cats = categoriesPresent();
   const list = orderedProducts();
   app.innerHTML = `
-    ${topbarHtml()}
     ${headerHtml()}
     ${navHtml(cats)}
-    ${marqueeHtml()}
     <div class="hero">
       <div class="hero-banner">
         <div class="hero-text">
           <h1>Todo lo que necesitas, al mejor precio de Colombia</h1>
           <p>Más de 3 años despachando a toda Colombia. Paga contra entrega, sin sorpresas. Productos nuevos, garantizados y con envío gratis.</p>
           <div class="hero-badges">
-            <span class="hero-badge">🚚 Envío GRATIS a toda Colombia</span>
-            <span class="hero-badge">💵 Pago contra entrega</span>
-            <span class="hero-badge">🛡️ Garantía real</span>
+            <span class="hero-badge">${ICONS.truck}<span>Envío gratis a toda Colombia</span></span>
+            <span class="hero-badge">${ICONS.cash}<span>Pago contra entrega</span></span>
+            <span class="hero-badge">${ICONS.shield}<span>Garantía real</span></span>
           </div>
-          <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola Trogüi! 👋 Quiero saber más sobre sus productos.')}" target="_blank" class="hero-cta">💬 Escríbenos por WhatsApp</a>
+          <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola Trogüi, quiero saber más sobre sus productos.')}" target="_blank" class="hero-cta">${ICONS.whatsapp}<span>Escríbenos por WhatsApp</span></a>
         </div>
       </div>
     </div>
@@ -1347,16 +1394,31 @@ function renderHome(){
     <div class="grid" id="grid">
       ${list.length ? list.map(cardHtml).join('') : emptyStateHtml()}
     </div>
+    ${trustStripHtml()}
+    ${carriersHtml()}
+    ${marqueeHtml()}
     ${footerHtml()}
     ${fabsHtml()}
   `;
   bindGlobalEvents();
   tickTimers();
+  startNotifications();
+}
+
+function updateGrid(){
+  const list = orderedProducts();
+  const gridEl = document.getElementById('grid');
+  const titleWrap = document.querySelector('.section-title h2');
+  const subWrap = document.querySelector('.section-sub');
+  if(gridEl) gridEl.innerHTML = list.length ? list.map(cardHtml).join('') : emptyStateHtml();
+  if(titleWrap) titleWrap.innerHTML = STATE.category==='todas' ? 'Todos los <span>productos</span>' : (CAT_LABELS[STATE.category]?.label || STATE.category);
+  if(subWrap) subWrap.textContent = `${list.length} producto${list.length===1?'':'s'} disponible${list.length===1?'':'s'} · envío gratis a toda Colombia`;
+  tickTimers();
 }
 
 function emptyStateHtml(){
   return `<div class="empty-state" style="grid-column:1/-1;">
-    <div style="font-size:2.4rem;">🔍</div>
+    <div class="empty-ico">${ICONS.search}</div>
     <p>No encontramos productos con esa búsqueda.<br>Intenta con otra palabra o mira todas las categorías.</p>
   </div>`;
 }
@@ -1367,8 +1429,7 @@ function cardHtml(p){
   return `
   <div class="card">
     ${discount>0 ? `<span class="badge">-${discount}%</span>` : ''}
-    ${p.lastUnits ? `<span class="badge last">¡Últimas!</span>` : ''}
-    ${p.sold>200 ? `<span class="badge top">TOP</span>` : ''}
+    ${p.lastUnits ? `<span class="badge last">Últimas unidades</span>` : (p.sold>200 ? `<span class="badge last">Más vendido</span>` : '')}
     <div class="card-img-wrap" onclick="goToProduct('${p.id}')">
       <img src="${img}" alt="${escapeHtml(p.name)}" loading="lazy" onerror="this.onerror=null;this.src='${PLACEHOLDER_IMG}';">
     </div>
@@ -1379,11 +1440,8 @@ function cardHtml(p){
         <span class="price-now">${money(p.price)}</span>
         ${p.oldPrice ? `<span class="price-old">${money(p.oldPrice)}</span>` : ''}
       </div>
-      <div class="timer-row">⏱️ Acaba en: <span data-timer="${p.id}">--:--</span></div>
-      <div class="card-actions">
-        <button class="btn btn-dark" onclick="goToProduct('${p.id}')">Ver más</button>
-        <button class="btn btn-orange pulse" onclick="quickOrder('${p.id}')">🔥 Pedir Ya</button>
-      </div>
+      <div class="timer-row">${ICONS.clock}<span data-timer="${p.id}">--:--</span></div>
+      <button class="btn btn-orange full" onclick="quickOrder('${p.id}')">Comprar ahora</button>
     </div>
   </div>`;
 }
@@ -1403,26 +1461,15 @@ function quickOrder(id){
 }
 
 /* ---------- Bloques compartidos ---------- */
-function topbarHtml(){
-  return `<div class="topbar">
-    <span>🚚 <b>Envío GRATIS</b> a toda Colombia</span>
-    <span>💵 <b>Pago contra entrega</b> disponible</span>
-    <span>🛡️ Garantía de 30 a 60 días</span>
-    <span>⭐ +3 años en el mercado colombiano</span>
-  </div>`;
-}
 function headerHtml(){
   return `<header class="site-header">
     <div class="header-inner">
       <a href="#/" class="logo">TR<span class="accent-o">O</span>GÜI<small>bodega colombiana</small></a>
       <div class="search-wrap">
-        <input id="searchInput" type="text" placeholder="Buscar productos... (ej: freidora, audifonos, tensiometro)" value="${escapeHtml(STATE.query)}">
-        <button onclick="doSearch()">🔎</button>
+        <input id="searchInput" type="text" placeholder="Buscar productos..." value="${escapeHtml(STATE.query)}" autocomplete="off">
+        <button onclick="doSearch()">${ICONS.search}</button>
       </div>
-      <div class="header-actions">
-        <a href="https://wa.me/${WHATSAPP_NUMBER}" target="_blank"><span class="icon-circle">💬</span>WhatsApp</a>
-        <a href="${SOCIAL.instagram}" target="_blank"><span class="icon-circle">📷</span>Instagram</a>
-      </div>
+      <a class="header-wsp" href="https://wa.me/${WHATSAPP_NUMBER}" target="_blank">${ICONS.whatsapp}<span>WhatsApp</span></a>
     </div>
   </header>`;
 }
@@ -1431,15 +1478,36 @@ function navHtml(cats){
   return `<nav class="cat-nav"><div class="cat-nav-inner">
     ${chips.map(c=>{
       const active = STATE.category===c ? 'active' : '';
-      const label = c==='todas' ? '🛍️ Todas' : `${CAT_LABELS[c]?.icon||''} ${CAT_LABELS[c]?.label||c}`;
-      return `<a href="javascript:void(0)" class="cat-chip ${active}" onclick="setCategory('${c}')">${label}</a>`;
+      const label = c==='todas' ? 'Todas' : (CAT_LABELS[c]?.label || c);
+      return `<a href="javascript:void(0)" class="cat-chip ${active}" data-cat="${c}" onclick="setCategory('${c}')">${label}</a>`;
     }).join('')}
   </div></nav>`;
 }
+function trustStripHtml(){
+  return `<div class="trust-strip"><div class="trust-strip-inner">
+    <div class="ts-item">${ICONS.truck}<div><b>Envío gratis</b><span>A toda Colombia</span></div></div>
+    <div class="ts-item">${ICONS.cash}<div><b>Pago contra entrega</b><span>Sin anticipos</span></div></div>
+    <div class="ts-item">${ICONS.shield}<div><b>Garantía real</b><span>30 a 60 días</span></div></div>
+    <div class="ts-item">${ICONS.check}<div><b>+3 años</b><span>En el mercado colombiano</span></div></div>
+  </div></div>`;
+}
+function carriersHtml(mini){
+  if(mini){
+    return `<div class="carriers-mini">${ICONS.truck}<span>Enviamos con Interrapidísimo · Envía · Coordinadora</span></div>`;
+  }
+  return `<div class="carriers-block">
+    <p class="carriers-label">Envíos certificados a toda Colombia</p>
+    <div class="carriers-row">
+      <span class="carrier-badge">Interrapidísimo</span>
+      <span class="carrier-badge">Envía</span>
+      <span class="carrier-badge">Coordinadora</span>
+    </div>
+  </div>`;
+}
 function marqueeHtml(){
-  const items = ['🚚 Envío GRATIS a toda Colombia','💵 Paga contra entrega, sin anticipos','🛡️ Garantía de 30 a 60 días según el producto',
-  '📦 Enviamos con Interrapidísimo, Envía y Coordinadora','⭐ +3 años de experiencia en el mercado colombiano','🆕 Productos 100% nuevos y garantizados'];
-  const track = [...items, ...items].map(t=>`<span>${t}</span>`).join('');
+  const items = ['Envío gratis a toda Colombia','Pago contra entrega, sin anticipos','Garantía de 30 a 60 días según el producto',
+  'Enviamos con Interrapidísimo, Envía y Coordinadora','Más de 3 años de experiencia en el mercado colombiano','Productos 100% nuevos y garantizados'];
+  const track = [...items, ...items].map(t=>`<span>${ICONS.check}${t}</span>`).join('');
   return `<div class="marquee"><div class="marquee-track">${track}</div></div>`;
 }
 function footerHtml(){
@@ -1449,9 +1517,9 @@ function footerHtml(){
         <div class="foot-logo">TR<span>O</span>GÜI</div>
         <p>Trogüi es una bodega colombiana con más de 3 años en el mercado, especializada en productos para el hogar, tecnología y bienestar. Trabajamos con productos 100% nuevos y garantizados, pensando siempre en la satisfacción de nuestros clientes.</p>
         <div class="social-row">
-          <a class="social-pill" href="${SOCIAL.tiktok}" target="_blank" title="TikTok">🎵</a>
-          <a class="social-pill" href="${SOCIAL.instagram}" target="_blank" title="Instagram">📷</a>
-          <a class="social-pill" href="https://wa.me/${WHATSAPP_NUMBER}" target="_blank" title="WhatsApp">💬</a>
+          <a class="social-pill" href="${SOCIAL.tiktok}" target="_blank" title="TikTok">${ICONS.tiktok}</a>
+          <a class="social-pill" href="${SOCIAL.instagram}" target="_blank" title="Instagram">${ICONS.instagram}</a>
+          <a class="social-pill" href="https://wa.me/${WHATSAPP_NUMBER}" target="_blank" title="WhatsApp">${ICONS.whatsapp}</a>
         </div>
       </div>
       <div>
@@ -1479,31 +1547,76 @@ function footerHtml(){
     </div>
     <div class="foot-bottom">
       <span>© ${new Date().getFullYear()} Trogüi — Bodega colombiana. Todos los derechos reservados.</span>
-      <span>Hecho con ❤️ en Colombia</span>
+      <span>Hecho en Colombia</span>
     </div>
   </footer>`;
 }
 function fabsHtml(){
   return `
-  <a class="fab-whatsapp" href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola Trogüi! 👋 Tengo una pregunta.')}" target="_blank" title="Escríbenos por WhatsApp">💬</a>
+  <a class="fab-whatsapp" href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola Trogüi, tengo una pregunta.')}" target="_blank" title="Escríbenos por WhatsApp">${ICONS.whatsapp}</a>
   <div class="fab-admin" onclick="openAdminLogin()" title="Panel">R</div>
+  <div id="notifHost" class="notif-host"></div>
   <div id="toast" class="toast"></div>
   `;
 }
 
+/* ---------- Notificaciones de confianza (social proof) ---------- */
+const NOTIF_POOL = [
+  {text:'Envío gratis a toda Colombia', icon:''},
+  {text:'Pago contra entrega disponible', icon:''},
+  {text:'Garantía de hasta 60 días', icon:''},
+  {text:'Más de 3 años sirviendo a Colombia', icon:''},
+  {text:'Productos 100% nuevos y verificados', icon:''}
+];
+function randomSocialProof(){
+  if(!STATE.products.length) return null;
+  const p = STATE.products[Math.floor(Math.random()*STATE.products.length)];
+  const city = CIUDADES_CO[Math.floor(Math.random()*CIUDADES_CO.length)];
+  return {text:`Compra reciente en ${city}: ${p.name}`, icon:''};
+}
+let NOTIF_STARTED = false;
+function startNotifications(){
+  if(NOTIF_STARTED) return;
+  NOTIF_STARTED = true;
+  setTimeout(()=> pushNotif(NOTIF_POOL[0]), 7000);
+  setTimeout(()=> pushNotif(NOTIF_POOL[1]), 20000);
+  const loop = ()=>{
+    const delay = 26000 + Math.random()*18000;
+    setTimeout(()=>{
+      const n = Math.random() < 0.5 ? randomSocialProof() : NOTIF_POOL[Math.floor(Math.random()*NOTIF_POOL.length)];
+      if(n) pushNotif(n);
+      loop();
+    }, delay);
+  };
+  setTimeout(loop, 34000);
+}
+function pushNotif(n){
+  const host = document.getElementById('notifHost');
+  if(!host || !n) return;
+  const el = document.createElement('div');
+  el.className = 'notif-toast';
+  el.innerHTML = `<span class="notif-ico">${ICONS[n.icon]||ICONS.check}</span><span>${escapeHtml(n.text)}</span>`;
+  host.appendChild(el);
+  requestAnimationFrame(()=> el.classList.add('show'));
+  setTimeout(()=>{ el.classList.remove('show'); setTimeout(()=> el.remove(), 400); }, 4600);
+}
+
 /* ---------- Búsqueda y categoría ---------- */
-function setCategory(c){ STATE.category = c; renderHome(); }
+function setCategory(c){
+  STATE.category = c;
+  document.querySelectorAll('.cat-chip').forEach(el=> el.classList.toggle('active', el.getAttribute('data-cat')===c));
+  updateGrid();
+}
 function doSearch(){
-  const val = document.getElementById('searchInput').value;
-  STATE.query = val;
-  renderHome();
-  setTimeout(()=>{ const el=document.getElementById('searchInput'); if(el){ el.focus(); el.setSelectionRange(el.value.length, el.value.length); } },0);
+  const el = document.getElementById('searchInput');
+  STATE.query = el ? el.value : '';
+  updateGrid();
 }
 function bindGlobalEvents(){
   const input = document.getElementById('searchInput');
   if(input){
     input.addEventListener('keydown', e=>{ if(e.key==='Enter') doSearch(); });
-    input.addEventListener('input', debounce(()=>doSearch(), 380));
+    input.addEventListener('input', debounce(()=>doSearch(), 250));
   }
 }
 function debounce(fn, wait){
@@ -1528,7 +1641,6 @@ function renderProductPage(p){
   const beneficios = sentences.slice(1,5);
 
   app.innerHTML = `
-    ${topbarHtml()}
     ${headerHtml()}
     ${navHtml(categoriesPresent())}
     <div class="detail-wrap">
@@ -1553,14 +1665,14 @@ function renderProductPage(p){
               ${p.oldPrice ? `<span class="detail-price-old">${money(p.oldPrice)}</span>` : ''}
               ${discount>0 ? `<span class="discount-tag">-${discount}% OFF</span>` : ''}
             </div>
-            ${savings>0 ? `<div class="savings">✅ Ahorras ${money(savings)} comprando hoy</div>` : ''}
-            <div class="detail-timer">⏱️ Promoción termina en <b data-timer="${p.id}">--:--</b></div>
+            ${savings>0 ? `<div class="savings">${ICONS.check}<span>Ahorras ${money(savings)} comprando hoy</span></div>` : ''}
+            <div class="detail-timer">${ICONS.clock}<span>Promoción termina en</span> <b data-timer="${p.id}">--:--</b></div>
           </div>
           <div class="trust-grid">
-            <div class="trust-item"><span class="ico">🚚</span>Envío GRATIS a toda Colombia</div>
-            <div class="trust-item"><span class="ico">💵</span>Pago contra entrega</div>
-            <div class="trust-item"><span class="ico">🛡️</span>Garantía de ${garantia} días</div>
-            <div class="trust-item"><span class="ico">🔁</span>5 días hábiles para reportar</div>
+            <div class="trust-item">${ICONS.truck}<span>Envío gratis a toda Colombia</span></div>
+            <div class="trust-item">${ICONS.cash}<span>Pago contra entrega</span></div>
+            <div class="trust-item">${ICONS.shield}<span>Garantía de ${garantia} días</span></div>
+            <div class="trust-item">${ICONS.repeat}<span>5 días hábiles para reportar</span></div>
           </div>
           <div class="qty-row">
             <span style="font-weight:700;font-size:.85rem;">Cantidad:</span>
@@ -1571,11 +1683,12 @@ function renderProductPage(p){
             </div>
           </div>
           <div class="cta-col">
-            <button class="cta-big cta-whatsapp" onclick="openOrderModal(STATE.products.find(x=>x.id==='${p.id}'))">🛒 Comprar por WhatsApp — Pago Contra Entrega</button>
+            <button class="cta-big cta-whatsapp" onclick="openOrderModal(STATE.products.find(x=>x.id==='${p.id}'))">${ICONS.whatsapp}<span>Comprar ahora — Pago contra entrega</span></button>
             <div class="share-row">
-              <button class="share-btn" onclick="shareProduct('${p.id}')">🔗 Compartir producto</button>
-              <button class="share-btn" onclick="copyLink('${p.id}')">📋 Copiar enlace</button>
+              <button class="share-btn" onclick="shareProduct('${p.id}')">${ICONS.link}<span>Compartir</span></button>
+              <button class="share-btn" onclick="copyLink('${p.id}')">${ICONS.copy}<span>Copiar enlace</span></button>
             </div>
+            ${carriersHtml(true)}
           </div>
         </div>
       </div>
@@ -1584,11 +1697,11 @@ function renderProductPage(p){
     <div class="desc-block">
       <div class="desc-card">
         <h3>Descripción del producto</h3>
-        <div class="desc-line"><span class="em">❗</span><span><b>Problema:</b> ${problema}</span></div>
-        <div class="desc-line"><span class="em">✅</span><span><b>Solución:</b> ${solucion}</span></div>
-        ${beneficios.length ? `<div class="desc-line"><span class="em">🎁</span><span><b>Beneficios:</b></span></div>
+        <div class="desc-line"><span><b>Problema:</b> ${problema}</span></div>
+        <div class="desc-line"><span><b>Solución:</b> ${solucion}</span></div>
+        ${beneficios.length ? `<div class="desc-line"><span><b>Beneficios</b></span></div>
         <ul class="benefits-list">${beneficios.map(b=>`<li>${b}</li>`).join('')}</ul>` : ''}
-        <div class="desc-line" style="margin-top:10px;"><span class="em">🛡️</span><span>Este producto cuenta con <b>${garantia} días de garantía</b>. Si algo no sale como esperabas, tienes <b>5 días hábiles</b> desde la entrega para reportarlo y te ayudamos sin complicaciones.</span></div>
+        <div class="desc-line" style="margin-top:10px;"><span>Este producto cuenta con <b>${garantia} días de garantía</b>. Si algo no sale como esperabas, tienes <b>5 días hábiles</b> desde la entrega para reportarlo y te ayudamos sin complicaciones.</span></div>
       </div>
     </div>
 
@@ -1609,7 +1722,7 @@ function renderProductPage(p){
             </div>
             <div class="stars">${starIcons(r.stars)}</div>
             <div class="review-text">"${r.text}"</div>
-            <div class="verified">✔ Compra verificada</div>
+            <div class="verified">${ICONS.check}<span>Compra verificada</span></div>
           </div>
         `).join('')}
       </div>
@@ -1624,11 +1737,15 @@ function renderProductPage(p){
       </div>
     </div>
 
+    ${trustStripHtml()}
+    ${carriersHtml()}
+    ${marqueeHtml()}
     ${footerHtml()}
     ${fabsHtml()}
   `;
   bindGlobalEvents();
   tickTimers();
+  startNotifications();
 }
 
 function setGalleryImg(i){
@@ -1659,7 +1776,7 @@ function shareProduct(id){
 }
 function copyLink(id){
   const url = location.origin + location.pathname + '#/producto/' + encodeURIComponent(id);
-  navigator.clipboard.writeText(url).then(()=> showToast('Enlace copiado ✅')).catch(()=> showToast(url));
+  navigator.clipboard.writeText(url).then(()=> showToast('Enlace copiado')).catch(()=> showToast(url));
 }
 function showToast(msg){
   const t = document.getElementById('toast');
@@ -1703,7 +1820,8 @@ function openOrderModal(product){
         </div>
         <div class="form-row" id="direccionRow"><label>Dirección completa *</label><input type="text" id="f_direccion" required placeholder="Ej: Cra 45 #12-30, Barrio Laureles"></div>
         <div class="form-row"><label>Nota (opcional)</label><textarea id="f_nota" rows="2" placeholder="Color, talla u otra indicación..."></textarea></div>
-        <button type="submit" class="modal-submit">💬 Enviar pedido por WhatsApp</button>
+        <button type="submit" class="modal-submit">${ICONS.whatsapp}<span>Enviar pedido por WhatsApp</span></button>
+        ${carriersHtml(true)}
       </form>
     </div>
   `;
@@ -1740,20 +1858,20 @@ function submitOrder(product, qty){
   const total = money(product.price * qty);
   const link = location.origin + location.pathname + '#/producto/' + encodeURIComponent(product.id);
 
-  let msg = `¡Hola Trogüi! 👋 Quiero hacer este pedido:\n\n`;
-  msg += `🛍️ *Producto:* ${product.name}\n`;
-  msg += `🔢 *Cantidad:* ${qty}\n`;
-  msg += `💰 *Precio unitario:* ${money(product.price)}\n`;
-  msg += `💵 *Total:* ${total}\n`;
-  msg += `🔗 *Link del producto:* ${link}\n\n`;
-  msg += `👤 *Nombre:* ${nombre}\n`;
-  msg += `📞 *Teléfono:* ${telefono}\n`;
-  msg += `🗺️ *Departamento:* ${departamento}\n`;
-  msg += `🏙️ *Ciudad/Municipio:* ${ciudad}\n`;
-  msg += `📦 *Entrega:* ${entrega==='casa' ? 'A domicilio' : 'Recoger en oficina Interrapidísimo'}\n`;
-  if(direccion) msg += `📍 *Dirección:* ${direccion}\n`;
-  if(nota) msg += `📝 *Nota:* ${nota}\n`;
-  msg += `\n💳 Pago contra entrega`;
+  let msg = `Hola Trogüi, quiero hacer este pedido:\n\n`;
+  msg += `*Producto:* ${product.name}\n`;
+  msg += `*Cantidad:* ${qty}\n`;
+  msg += `*Precio unitario:* ${money(product.price)}\n`;
+  msg += `*Total:* ${total}\n`;
+  msg += `*Link del producto:* ${link}\n\n`;
+  msg += `*Nombre:* ${nombre}\n`;
+  msg += `*Teléfono:* ${telefono}\n`;
+  msg += `*Departamento:* ${departamento}\n`;
+  msg += `*Ciudad/Municipio:* ${ciudad}\n`;
+  msg += `*Entrega:* ${entrega==='casa' ? 'A domicilio' : 'Recoger en oficina Interrapidísimo'}\n`;
+  if(direccion) msg += `*Dirección:* ${direccion}\n`;
+  if(nota) msg += `*Nota:* ${nota}\n`;
+  msg += `\nPago contra entrega`;
 
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
   window.open(url, '_blank');
@@ -1787,7 +1905,7 @@ function checkAdminPass(){
     closeModal('adminLoginOverlay');
     openAdminDashboard();
   } else {
-    showToast('Clave incorrecta ❌');
+    showToast('Clave incorrecta');
   }
 }
 function openAdminDashboard(){
@@ -1801,8 +1919,8 @@ function openAdminDashboard(){
       <h3>Panel Trogüi — Productos</h3>
       <p class="sub">Edita precio, descripción, imágenes o elimina productos.</p>
       <div class="admin-actions-top">
-        <button onclick="openProductEditor(null)">➕ Agregar producto nuevo</button>
-        <button onclick="resetAllOverrides()" style="background:var(--black);">↺ Restablecer todo</button>
+        <button onclick="openProductEditor(null)">Agregar producto nuevo</button>
+        <button onclick="resetAllOverrides()" style="background:var(--black);">Restablecer todo</button>
       </div>
       <div class="admin-list" id="adminList">
         ${products.map(p=>`
@@ -1826,7 +1944,7 @@ function resetAllOverrides(){
   closeModal('adminDashOverlay');
   STATE.order = [];
   render();
-  showToast('Tienda restablecida ✅');
+  showToast('Tienda restablecida');
 }
 function deleteProduct(id){
   if(!confirm('¿Eliminar este producto de la tienda?')) return;
@@ -1839,7 +1957,7 @@ function deleteProduct(id){
   STATE.order = [];
   render();
   openAdminDashboard();
-  showToast('Producto eliminado 🗑️');
+  showToast('Producto eliminado');
 }
 
 let EDITOR_IMGS = [];
@@ -1885,7 +2003,7 @@ function openProductEditor(id){
         <div style="flex:1;"><label>Estrellas (1-5)</label><input id="e_stars" type="number" min="1" max="5" value="${p.stars}"></div>
       </div>
       <div class="form-row"><label><input type="checkbox" id="e_last" style="width:auto;" ${p.lastUnits?'checked':''}> Marcar como "últimas unidades"</label></div>
-      <button class="modal-submit" style="background:var(--orange);" onclick="saveProduct('${isNew?'':id}')">💾 Guardar producto</button>
+      <button class="modal-submit" style="background:var(--orange);" onclick="saveProduct('${isNew?'':id}')">Guardar producto</button>
     </div>`;
   document.body.appendChild(overlay);
 }
@@ -1918,7 +2036,7 @@ function saveProduct(id){
   const sold = parseInt(document.getElementById('e_sold').value)||0;
   const stars = Math.min(5,Math.max(1, parseInt(document.getElementById('e_stars').value)||5));
   const lastUnits = document.getElementById('e_last').checked;
-  if(!name || !EDITOR_IMGS.length){ showToast('Falta nombre o al menos una imagen ⚠️'); return; }
+  if(!name || !EDITOR_IMGS.length){ showToast('Falta nombre o al menos una imagen'); return; }
 
   const store = readStore();
   if(id){
@@ -1931,7 +2049,7 @@ function saveProduct(id){
   closeModal('adminDashOverlay');
   STATE.order = [];
   render();
-  showToast('Producto guardado ✅');
+  showToast('Producto guardado');
 }
 
 /* ---------- Arranque ---------- */
