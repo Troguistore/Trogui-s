@@ -480,12 +480,14 @@ footer{background:var(--black);color:#d9d9d0;margin-top:40px;padding:40px 14px 2
 <script>
 const RAW_PRODUCTS = [
   {id:'T001',name:'Escurridor Loza Con Tapa 65cm 2 Niveles',cat:'cocina',
-   imgs:['https://d39ru7awumhhs2.cloudfront.net/colombia/products/1916715/1756999631142.png','https://d39ru7awumhhs2.cloudfront.net/colombia/products/1886527/1753723291WhatsApp%20Image%202025-07-27%20at%209.38.06%20PM%20(1).jpeg'],
+   imgs:['https://d39ru7awumhhs2.cloudfront.net/colombia/products/1916715/1756999631142.png','https://d39ru7awumhhs2.cloudfront.net/colombia/products/1886527/1753723291WhatsApp%20Image%202025-07-27%20at%209.38.06%20PM%20(1).jpeg','https://d39ru7awumhhs2.cloudfront.net/colombia/products/2219914/80332345-54f4-4364-ac32-2c65e41c3d42.jpg','https://d39ru7awumhhs2.cloudfront.net/colombia/products/2219664/img_6a7000cff0fc64.03607341_0.png','https://d39ru7awumhhs2.cloudfront.net/colombia/products/1916715/1756999631143.png
+'],
    price:139000,oldPrice:220000,
    desc:'Escurreplatos con tapa innovadora que mantiene el polvo fuera. Gran capacidad para platos, cuencos, tazas y cubiertos. Fabricado en acero inoxidable con revestimiento negro resistente al óxido. 4 ventosas para mayor estabilidad. Diseño 2 niveles para máximo aprovechamiento del espacio.',
    sold:89,stars:5,lastUnits:false,timer:4*60*60},
   {id:'T002',name:'Maquina Quita Callos Eléctrica Removedor',cat:'salud',
-   imgs:['https://d39ru7awumhhs2.cloudfront.net/colombia/products/1635913/1737489352Screenshot_11.png','https://d39ru7awumhhs2.cloudfront.net/colombia/products/1176532/1725899615Removedor%20de%20callos%20de%20pies%20el%C3%A9ctrico%208.jpg','https://d39ru7awumhhs2.cloudfront.net/colombia/products/1635913/1737489352Screenshot_9.png','https://d39ru7awumhhs2.cloudfront.net/colombia/products/1176555/1761839437Removedor%20de%20callos%20de%20pies%20el%C3%A9ctrico%2015.jpg'],
+   imgs:['https://d39ru7awumhhs2.cloudfront.net/colombia/products/1635913/1737489352Screenshot_11.png','https://d39ru7awumhhs2.cloudfront.net/colombia/products/1176532/1725899615Removedor%20de%20callos%20de%20pies%20el%C3%A9ctrico%208.jpg','https://d39ru7awumhhs2.cloudfront.net/colombia/products/1635913/1737489352Screenshot_9.png','https://d39ru7awumhhs2.cloudfront.net/colombia/products/1176555/1761839437Removedor%20de%20callos%20de%20pies%20el%C3%A9ctrico%2015.jpg','https://d39ru7awumhhs2.cloudfront.net/colombia/products/1627409/17370345681.png','https://d39ru7awumhhs2.cloudfront.net/colombia/products/613008/170604088010000295_10289965_915546.png','https://d39ru7awumhhs2.cloudfront.net/colombia/products/2139118/1777306277IMAGEN%20ONIX%20-%202026-04-27T111021.632.png','https://d39ru7awumhhs2.cloudfront.net/colombia/products/1707725/1773851515callos%202.webp
+'],
    price:49000,oldPrice:89000,
    desc:'Elimina callos, piel dura y talones agrietados de forma rápida y segura. Diseño ergonómico con mango cómodo. Cuerpo portátil giratorio 360° con rodillos de partículas microabrasivas impermeables y fáciles de reemplazar. ¡Resultados desde la primera aplicación!',
    sold:340,stars:5,lastUnits:true,timer:30*60},
