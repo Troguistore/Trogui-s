@@ -590,7 +590,7 @@ const RAW_PRODUCTS = [
    desc:'Elegante juego de cubiertos 24 piezas presentado en estuche con forma de huevo. Acero inoxidable de alta calidad, resistente y duradero. Incluye tenedores, cucharas, cuchillos y cucharitas. Perfecto como regalo o para tu mesa del diario. Presentación lujosa.',
    sold:145,stars:5,lastUnits:true,timer:60*60},
   {id:'T023',name:'Iniciador de Batería Cargador 12V Inteligente',cat:'accesorios',
-   imgs:['https://d39ru7awumhhs2.cloudfront.net/colombia/products/2077325/1770401328cargador-bateria-para-carros-y-motos-12v-6-amp.webp'],
+   imgs:['https://d39ru7awumhhs2.cloudfront.net/colombia/products/2077325/1770401328cargador-bateria-para-carros-y-motos-12v-6-amp.webp','https://d39ru7awumhhs2.cloudfront.net/colombia/products/2075026/1770226240WhatsApp%20Image%202026-02-04%20at%2012.26.04%20PM.jpeg','https://d39ru7awumhhs2.cloudfront.net/colombia/products/2075026/1770226240WhatsApp%20Image%202026-02-04%20at%2012.24.54%20PM.jpeg','https://d39ru7awumhhs2.cloudfront.net/colombia/products/1707333/1772563339ac225d34-cacd-45a1-8409-f27befab14a0.jpeg','https://d39ru7awumhhs2.cloudfront.net/colombia/products/1707333/1772563339IMG_7969.jpeg'],
    price:69000,oldPrice:125000,
    desc:'¿Batería muerta? ¡Nunca más! Cargador inteligente 12V para carros y motos. Diagnostica, carga y repara baterías. Protección contra cortocircuito y sobrecarga. Pantalla indicadora de estado. Fácil conexión con pinzas tipo cocodrilo. Imprescindible para tu vehículo.',
    sold:110,stars:5,lastUnits:false,timer:4*60*60},
